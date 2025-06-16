@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Lunar OS</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #ffffff;
+      --accent-color: #1f1f1f;
+      --gradient-color: rgba(13, 13, 13, 0.8);
+      --gradient: linear-gradient(144deg, #8a2be2, #4b32d3 50%, #00b4cc);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .diagonal-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, var(--gradient-color) 50%, transparent 50%), url('bck.jpg');
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
+      filter: blur(0px);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .left-text {
+      align-self: flex-start;
+      font-size: 2rem;
+      margin-bottom: auto;
+    }
+
+    .right-text {
+      align-self: flex-end;
+      font-size: 1.5rem;
+      margin-top: auto;
+      text-align: right;
+    }
+    /* From Uiverse.io by kennyotsu-monochromia */ 
+.card {
+  width: 400px;
+  height: 350px;
+  --black: #000000;
+  --ch-black: #141414;
+  --eer-black: #1b1b1b;
+  --night-rider: #2e2e2e;
+  --white: #ffffff;
+  --af-white: #f3f3f3;
+  --ch-white: #e1e1e1;
+  font-family: Helvetica, sans-serif;
+}
+
+.wrapper {
+  margin: 2rem auto;
+  width: 250px;
+  font-size: small;
+}
+
+.title {
+  text-align: center;
+  color: #1b1b1b;
+}
+
+.heading {
+  font-weight: bold;
+  letter-spacing: 7px;
+  font-size: 1.5rem;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e8e8e8;
+  z-index: -1;
+  filter: blur(50px);
+  height: 50px;
+}
+
+.color {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hex {
+  text-align: end;
+  font-family: monospace;
+  text-transform: uppercase;
+}
+
+.black {
+  background: var(--black);
+  color: var(--ch-white);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.eerie-black {
+  background: var(--ch-black);
+  color: var(--ch-white);
+}
+
+.chinese-black {
+  background: var(--eer-black);
+  color: var(--ch-white);
+}
+
+.night-rider {
+  background: var(--night-rider);
+  color: var(--ch-white);
+}
+
+.chinese-white {
+  background: var(--ch-white);
+  color: var(--night-rider);
+}
+
+.anti-flash-white {
+  background: var(--af-white);
+  color: var(--night-rider);
+}
+
+.white {
+  background: var(--white);
+  color: var(--night-rider);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.border {
+  color: var(--night-rider);
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.border span {
+  border-radius: 5px;
+  color: var(--ch-white);
+  padding: 2px 4px;
+  background-color: var(--night-rider);
+}
+
+    .download {
+      align-items: center;
+      background-image: var(--gradient);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: flex;
+      font-size: 18px;
+      justify-content: center;
+      line-height: 1em;
+      min-width: 140px;
+      padding: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .download span {
+      background-color: rgb(5, 6, 45);
+      padding: 16px 24px;
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+    }
+
+    .download:hover span {
+      background: none;
+    }
+
+    .download:active {
+      transform: scale(0.9);
+    }
+
+    .window-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background-color: var(--accent-color);
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 0.5rem;
+      z-index: 10;
+    }
+
+    .window-controls div {
+      width: 12px;
+      height: 12px;
+      margin-left: 0.4rem;
+      background-color: #888;
+      border-radius: 50%;
+    }
+
+    /* Scroll-triggered sections */
+    .scroll-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .image-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('bck2.jpg') center/cover no-repeat;
+      filter: brightness(0.4);
+      z-index: 0;
+    }
+
+    .tools-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1200px;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease 0.2s;
+    }
+
+    .tool-card {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3);
+    }
+
+    .tool-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      background: rgba(15, 15, 15, 0.7);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tool-text {
+      background: rgba(15, 15, 15, 0.7);
+      backdrop-filter: blur(5px);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover .tool-text {
+      border-color: rgba(138, 43, 226, 0.3);
+    }
+
+    .tool-text h3 {
+      margin: 0 0 0.5rem 0;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tool-text p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Detail Section */
+    .detail-section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a2e);
+      position: relative;
+    }
+
+    .detail-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    .detail-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .detail-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-right: 2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .detail-text h2 {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: rgba(30, 30, 60, 0.6);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid rgba(138, 43, 226, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(138, 43, 226, 0.5);
+    }
+
+    .feature-card h3 {
+      color: white;
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+
+    .feature-card p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .detail-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .detail-image {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scroll-image.visible,
+    .section-title.visible,
+    .tools-grid.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .version-info {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+}
+  </style>
+</head>
+
+<body>
+  <div class="window-bar">
+    <div class="window-controls">
+      <div></div><div></div><div></div>
+    </div>
+  </div>
+  <footer class="footer">
+  &copy; 2025 Lunar. All rights reserved.
+</footer>
+
+  <!-- First Section -->
+  <div class="container">
+    <div class="diagonal-section"></div>
+    <div class="content">
+      <div class="left-text">Lunar</div>
+      <div class="right-text">
+        A custom made operating system<br />
+        from scratch, using the 64bit UEFI architecture<br />
+        Simple by design, powerful in use <br/><br/>
+        <div class="version-info">Release version: 1.0.4</div>
+        <div class="version-info">Dev version: 1.0.5</div>
+        <button class="download">
+          <span class="text">Download from github</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tools Section -->
+  <div class="scroll-section">
+    <div class="image-background"></div>
+    <div class="tools-content">
+      <h2 class="section-title">Meet Lunar's Tools</h2>
+      <div class="tools-grid">
+        <div class="tool-card" onclick="showDetail('lunar-land')">
+          <img class="tool-image" src="lunarland.jpg" alt="Lunar Land Window Manager" />
+          <div class="tool-text">
+            <h3>Lunar Land</h3>
+            <p>OpenGL powered, high-performance, lightweight window manager</p>
+          </div>
+        </div>
+        <div class="tool-card" onclick="showDetail('lapi')">
+          <img class="tool-image" src="lapi.jpg" alt="Lunar API" />
+          <div class="tool-text">
+            <h3>LAPI</h3>
+            <p>A high-performance API with over 800 useful and useless functions at your disposal</p>
+          </div>
+        </div>
+
+        <div class="tool-card" onclick="showDetail('other')">
+          <img class="tool-image" src="more.jpg" alt="more" />
+          <div class="tool-text">
+            <h3>Other programs</h3>
+            <p>Explore more tools that come with Lunar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Section -->
+  <div class="detail-section" id="detail-section">
+    <!-- Lunar Land Detail -->
+    <div class="detail-content" id="lunar-land-detail">
+      <div class="detail-header">
+        <img class="detail-image" src="lunarland.jpg" alt="Lunar Land">
+        <div class="detail-text">
+          <h2>Lunar Land</h2>
+          <p>A lightweight, high-performance window manager for Lunar</p>
+        </div>
+      </div>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>OpenGL & Depth2D</h3>
+          <p>Ability for the user to switch between OpenGL 4.6 and Lunar's Depth2D graphics API for rendering</p>
+        </div>
+        <div class="feature-card">
+          <h3>Lightweight</h3>
+          <p>Minimal resource usage and low overhead for a smooth user experience</p>
+        </div>
+        <div class="feature-card">
+          <h3>Modern</h3>
+          <p>Modern, sleek UI design, built with simplicity in mind</p>
+        </div>
+      </div>
+      <!-- In the Lunar Land Detail section, after the feature-grid -->
+<h3>Check out our themes</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; align-items: center;">
+  <button class="download" onclick="changeThemeImage('dark2')" style="flex-shrink: 0;">
+    <span class="text">Lunar Dark V2</span>
+  </button>
+  <button class="download" onclick="changeThemeImage('dark1')" style="flex-shrink: 0;">
+    <span class="text">Lunar Dark V1</span>
+  </button>
+  <button class="download" onclick="changeThemeImage('frost')" style="flex-shrink: 0;">
+    <span class="text">Lunar Frost</span>
+  </button>
+</div>
+
+<div style="display: flex; gap: 2rem; align-items: center; margin-top: 2rem;">
+  <div style="flex: 1;">
+    <img id="theme-preview" src="dark2.png" alt="Theme Preview" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  </div>
+  <div style="flex: 1;">
+    <h4 id="theme-title">Lunar Dark V2</h4>
+    <p id="theme-description">Modern, dark theme that won't strain your eyes</p>
+  </div>
+  <div class="card">
+  <div class="title">
+    <p class="desc">palette reference</p>
+  </div>
+  <div class="wrapper">
+    <div class="color black">
+      <span class="hex">#000000</span>
+    </div>
+    <div class="color eerie-black">
+      <span class="hex">#1b1b1b</span>
+    </div>
+    <div class="color chinese-black">
+      <span class="hex">#141414</span>
+    </div>
+     <div class="color night-rider">
+      <span class="hex">#2e2e2e</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  // Theme data with color palettes and naming schemes
+  const themes = {
+    dark2: {
+      image: "dark2.png",
+      title: "Lunar Dark V2",
+      description: "Modern, dark theme that won't strain your eyes",
+      palette: {
+        colors: [
+          { name: "Cosmic Void", hex: "#0E0E0E" },
+          { name: "Lunar Shadow", hex: "#252525" },
+          { name: "Dark Matter", hex: "#000000" },
+          { name: "Quantum Green", hex: "#00FF11" },
+        ]
+      }
+    },
+    dark1: {
+      image: "dark1.png",
+      title: "Lunar Dark V1",
+      description: "Lighter, more greyish dark theme, designed for a more classic look",
+      palette: {
+        colors: [
+          { name: "Nebula Haze", hex: "#292929" },
+          { name: "Moonlit Fog", hex: "#CACACA" },
+          { name: "Eclipse Shadow", hex: "#1a1a1a" },
+          { name: "Dark Matter", hex: "#000000" },
+          { name: "Quantum Green", hex: "#00FF11" },
+        ]
+      }
+    },
+    frost: {
+      image: "frost.png",
+      title: "Lunar Frost",
+      description: "Blue, icy theme with a modern look, inspired by cold, frosty mornings",
+      palette: {
+        colors: [
+          { name: "Frozen Nebula", hex: "#93B5CE" },
+          { name: "Frostbite", hex: "#5193C3" },
+          { name: "Glacial Deep", hex: "#93B5CE" },
+          { name: "Quantum Green", hex: "#00FF00" },
+          { name: "Dark Matter", hex: "#000000" },
+        ]
+      }
+    }
+  };
+
+  function changeThemeImage(theme) {
+    const themeData = themes[theme];
+    document.getElementById('theme-preview').src = themeData.image;
+    document.getElementById('theme-title').textContent = themeData.title;
+    document.getElementById('theme-description').textContent = themeData.description;
+    
+    // Update the color palette
+    updateColorPalette(themeData.palette);
+  }
+
+  function updateColorPalette(palette) {
+    const colorElements = document.querySelectorAll('.wrapper .color');
+    
+    palette.colors.forEach((color, index) => {
+      if (index < colorElements.length) {
+        const el = colorElements[index];
+        // Update color name
+        const nameSpan = el.querySelector('span:first-child:not(.hex)') || document.createElement('span');
+        if (!el.querySelector('span:first-child:not(.hex)')) {
+          el.insertBefore(nameSpan, el.firstChild);
+        }
+        nameSpan.textContent = color.name;
+        
+        // Update hex value
+        const hexSpan = el.querySelector('.hex');
+        if (hexSpan) {
+          hexSpan.textContent = color.hex;
+        }
+        
+        // Update background color
+        el.style.background = color.hex;
+        
+        // Update text color for contrast
+        const rgb = hexToRgb(color.hex);
+        if (rgb) {
+          const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+          el.style.color = brightness > 128 ? '#2e2e2e' : '#e1e1e1';
+        }
+      }
+    });
+  }
+
+  // Helper function to convert hex to RGB
+  function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
+  // Initialize with dark2 theme
+  document.addEventListener('DOMContentLoaded', () => {
+    changeThemeImage('dark2');
+  });
+</script>
+    </div>
+    
+    <!-- LAPI Detail -->
+    <div class="detail-content" id="lapi-detail">
+      <div class="detail-header">
+        <img class="detail-image" src="lapi-small.jpg" alt="LAPI">
+        <div class="detail-text">
+          <h2>Lunar API (LAPI)</h2>
+          <p>A lightweight, high-performance API made for Lunar with speed in mind</p>
+        </div>
+      </div>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Full control</h3>
+          <p>Gain complete, low-level control over your system with direct hardware access.</p>
+        </div>
+        <div class="feature-card">
+          <h3>100% backwards compatible</h3>
+          <p>Fully backwards compatible with previous versions of Lunar, with minimal code changes</p>
+        </div>
+        <div class="feature-card">
+          <h3>GUI</h3>
+          <p>Build fast, modern apps for Lunar with a familiar Windows-like coding style.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- other Detail -->
+    <div class="detail-content" id="other-detail">
+      <div class="detail-header">
+        <img class="detail-image" src="more.jpg" alt="LAPI">
+        <div class="detail-text">
+          <h2>Explore more programs provided</h2>
+        </div>
+      </div>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>DepthRenderer</h3>
+          <p>A high-performance 3D modeler & renderer, supporting DepthCore, OpenGL, and soon to come Vulkan</p>
+        </div>
+        <div class="feature-card">
+          <h3>Lunar Studio</h3>
+          <p>A powerful IDE for building console and graphical programs for Lunar</p>
+        </div>
+        <div class="feature-card">
+          <h3>[upcoming] Program Creator</h3>
+          <p>Make graphical programs for Lunar with ease, minimal coding required!</p>
+        </div>
+        <div class="feature-card">
+          <h3>notification center</h3>
+          <p>Keep track of all your notifications in one place.</p>
+        </div>
+        <div class="feature-card">
+          <h3>SpecSeek (made by Mellurboo)</h3>
+          <p>Find out everything there is to know about your hardware.</p>
+        </div>
+      </div>
+    </div>
+    
+
+
+  </div>
+
+<script>
+  // Add this to your existing script section
+  const firstSection = document.querySelector('.container');
+  let isFirstScroll = true;
+
+  // Function to handle initial scroll behavior
+  function handleInitialScroll() {
+    // Only scroll if we're not coming from a navigation within the page
+    if (window.location.hash === '') {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  window.addEventListener('wheel', (e) => {
+    const scrollPosition = window.scrollY || window.pageYOffset;
+    
+    // Only trigger if we're at the top (first section) and it's the first scroll
+    if (scrollPosition < 50 && isFirstScroll && e.deltaY > 0) {
+      isFirstScroll = false;
+      e.preventDefault();
+      
+      // Scroll to the tools section
+      document.querySelector('.scroll-section').scrollIntoView({
+        behavior: 'smooth'
+      });
+      
+      // Reset after a short delay so it can work again if user scrolls back up
+      setTimeout(() => {
+        isFirstScroll = true;
+      }, 1000);
+    }
+  });
+
+  // Your existing Intersection Observer code...
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Observe all animated elements
+  document.querySelectorAll('.section-title, .tools-grid').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Detail section functionality
+  function showDetail(component) {
+    // Hide all detail sections
+    document.querySelectorAll('.detail-content').forEach(el => {
+      el.classList.remove('active');
+    });
+    
+    // Show selected section
+    const detailSection = document.getElementById(`${component}-detail`);
+    if (detailSection) {
+      detailSection.classList.add('active');
+      
+      // Smooth scroll to detail section
+      document.getElementById('detail-section').scrollIntoView({
+        behavior: 'smooth'
+      });
+      
+      // Animate features
+      const features = detailSection.querySelectorAll('.feature-card');
+      features.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+    }
+  }
+
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', () => {
+    // First, ensure we're at the top of the page
+    handleInitialScroll();
+    
+    // Then set up the detail section (but don't auto-scroll)
+    const detailSection = document.getElementById('lunar-land-detail');
+    if (detailSection) {
+      detailSection.classList.add('active');
+    }
+    
+    // Set up hash-based navigation
+    if (window.location.hash) {
+      const component = window.location.hash.substring(1);
+      showDetail(component);
+    }
+  });
+
+  // Add touch support for mobile
+  let touchStartY = 0;
+
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, {passive: true});
+
+  window.addEventListener('touchmove', (e) => {
+    const scrollPosition = window.scrollY || window.pageYOffset;
+    const touchY = e.touches[0].clientY;
+    const touchDiff = touchStartY - touchY;
+    
+    if (scrollPosition < 50 && isFirstScroll && touchDiff > 10) {
+      isFirstScroll = false;
+      e.preventDefault();
+      
+      document.querySelector('.scroll-section').scrollIntoView({
+        behavior: 'smooth'
+      });
+      
+      setTimeout(() => {
+        isFirstScroll = true;
+      }, 1000);
+    }
+  }, {passive: false});
+</script>
+</body>
+</html>
