@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
   <title>Lunar OS</title>
   <style>
     :root {
@@ -487,7 +488,8 @@
       <div></div><div></div><div></div>
     </div>
   </div>
-  <footer class="footer">
+<footer class="footer">
+  <a href="eula.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; margin-right: 1rem;">EULA</a>
   &copy; 2025 Lunar. All rights reserved.
 </footer>
 
@@ -502,9 +504,13 @@
         Simple by design, powerful in use <br/><br/>
         <div class="version-info">Release version: 1.0.4</div>
         <div class="version-info">Dev version: 1.0.5</div>
+        <!--
         <button class="download">
           <span class="text">Download from github</span>
         </button>
+        -->
+      <div class="text" style="text-align: center;">Release Date: TBA</div>
+
       </div>
     </div>
   </div>
@@ -522,6 +528,7 @@
             <p>OpenGL powered, high-performance, lightweight window manager</p>
           </div>
         </div>
+
         <div class="tool-card" onclick="showDetail('lapi')">
           <img class="tool-image" src="lapi.jpg" alt="Lunar API" />
           <div class="tool-text">
@@ -529,6 +536,7 @@
             <p>A high-performance API with over 800 useful and useless functions at your disposal</p>
           </div>
         </div>
+
 
         <div class="tool-card" onclick="showDetail('other')">
           <img class="tool-image" src="more.jpg" alt="more" />
@@ -773,19 +781,15 @@
         </div>
       </div>
     </div>
+
     
-
-
   </div>
 
 <script>
-  // Add this to your existing script section
   const firstSection = document.querySelector('.container');
   let isFirstScroll = true;
 
-  // Function to handle initial scroll behavior
   function handleInitialScroll() {
-    // Only scroll if we're not coming from a navigation within the page
     if (window.location.hash === '') {
       window.scrollTo(0, 0);
     }
@@ -794,24 +798,20 @@
   window.addEventListener('wheel', (e) => {
     const scrollPosition = window.scrollY || window.pageYOffset;
     
-    // Only trigger if we're at the top (first section) and it's the first scroll
     if (scrollPosition < 50 && isFirstScroll && e.deltaY > 0) {
       isFirstScroll = false;
       e.preventDefault();
       
-      // Scroll to the tools section
       document.querySelector('.scroll-section').scrollIntoView({
         behavior: 'smooth'
       });
       
-      // Reset after a short delay so it can work again if user scrolls back up
       setTimeout(() => {
         isFirstScroll = true;
       }, 1000);
     }
   });
 
-  // Your existing Intersection Observer code...
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -822,29 +822,23 @@
     threshold: 0.1
   });
 
-  // Observe all animated elements
   document.querySelectorAll('.section-title, .tools-grid').forEach(el => {
     observer.observe(el);
   });
 
-  // Detail section functionality
   function showDetail(component) {
-    // Hide all detail sections
     document.querySelectorAll('.detail-content').forEach(el => {
       el.classList.remove('active');
     });
     
-    // Show selected section
     const detailSection = document.getElementById(`${component}-detail`);
     if (detailSection) {
       detailSection.classList.add('active');
       
-      // Smooth scroll to detail section
       document.getElementById('detail-section').scrollIntoView({
         behavior: 'smooth'
       });
       
-      // Animate features
       const features = detailSection.querySelectorAll('.feature-card');
       features.forEach((card, index) => {
         card.style.transitionDelay = `${index * 0.1}s`;
@@ -852,25 +846,20 @@
     }
   }
 
-  // Initialize the page
   document.addEventListener('DOMContentLoaded', () => {
-    // First, ensure we're at the top of the page
     handleInitialScroll();
     
-    // Then set up the detail section (but don't auto-scroll)
     const detailSection = document.getElementById('lunar-land-detail');
     if (detailSection) {
       detailSection.classList.add('active');
     }
     
-    // Set up hash-based navigation
     if (window.location.hash) {
       const component = window.location.hash.substring(1);
       showDetail(component);
     }
   });
 
-  // Add touch support for mobile
   let touchStartY = 0;
 
   window.addEventListener('touchstart', (e) => {

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Lunar OS - End User License Agreement</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #ffffff;
+      --accent-color: #1f1f1f;
+      --gradient-color: rgba(13, 13, 13, 0.8);
+      --gradient: linear-gradient(144deg, #8a2be2, #4b32d3 50%, #00b4cc);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .window-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background-color: var(--accent-color);
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 0.5rem;
+      z-index: 10;
+    }
+
+    .window-controls div {
+      width: 12px;
+      height: 12px;
+      margin-left: 0.4rem;
+      background-color: #888;
+      border-radius: 50%;
+    }
+
+    .eula-container {
+      max-width: 900px;
+      margin: 60px auto 80px;
+      padding: 2rem;
+    }
+
+    .eula-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .eula-header h1 {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .eula-content {
+      background: rgba(30, 30, 60, 0.6);
+      border-radius: 8px;
+      padding: 2rem;
+      border: 1px solid rgba(138, 43, 226, 0.2);
+    }
+
+    .eula-content h2 {
+      color: #8a2be2;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .eula-content h3 {
+      color: #4b32d3;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .eula-content p {
+      margin: 1rem 0;
+    }
+
+    .eula-content ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background: var(--gradient);
+      border: none;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(15, 15, 15, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 0.5rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .eula-container {
+        padding: 1rem;
+        margin-top: 40px;
+      }
+      
+      .eula-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="window-bar">
+    <div class="window-controls">
+      <div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <div class="eula-container">
+    <div class="eula-header">
+      <h1>End User License Agreement</h1>
+      <p>Last Updated: 30. July 2025.</p>
+    </div>
+    
+    <div class="eula-content">
+      <h2>1. Overview</h2>
+      <p>This Agreement governs your use of the Lunar operating system ("Software"), a free, closed-source product developed by a sole individual ("Developer"). By installing or using the Software, you agree to these terms. If you disagree, do not use the Software.</p>
+      
+      <h2>2. Grant of License</h2>
+      <p>The Developer grants you a non-exclusive, non-transferable, revocable license to use the Software free of charge for personal, non-commercial purposes, subject to these terms.</p>
+      
+      <h3>Prohibited Actions:</h3>
+      <ul>
+        <li>Copy, modify, or create derivative works of the Software.</li>
+        <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code (strictly prohibited).</li>
+        <li>Remove or bypass any security or licensing mechanisms.</li>
+        <li>Distribute, sell, or use the Software commercially (including cloud, datacenter, or embedded systems).</li>
+      </ul>
+      <p>The Software is proprietary. No ownership or source-code rights are granted.</p>
+      
+      <h2>3. Ownership & Intellectual Property</h2>
+      <p>The Software is licensed, not sold. The Developer retains all rights, titles, and interests, including copyrights and trademarks.</p>
+      <p>ALL RIGHTS RESERVED.</p>
+      
+      <h2>4. Privacy & Data Collection</h2>
+      <p>The Software does not collect, transmit, or store any user data, telemetry, or identifiers. All operations are local to your device. You are responsible for any data you share via third-party platforms.</p>
+      
+      <h2>5. Updates & Modifications</h2>
+      <ul>
+        <li>The Developer may release updates at their sole discretion.</li>
+        <li>Updates may modify/remove features without prior notice.</li>
+        <li>No entitlement to support or future updates.</li>
+      </ul>
+      
+      <h2>6. Termination</h2>
+      <p>This Agreement terminates if you:</p>
+      <ul>
+        <li>Breach any term (e.g., attempt reverse engineering).</li>
+        <li>Delete the Software.</li>
+        <li>Upon Developer's revocation of your license.</li>
+      </ul>
+      <p>Upon termination, destroy all copies of the Software.</p>
+      
+      <h2>7. Disclaimer of Warranties</h2>
+      <p>THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. The Developer disclaims all implied warranties, including merchantability, fitness for a purpose, and non-infringement.</p>
+      <p>Use at your own risk.</p>
+      
+      <h2>8. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, the Developer shall not be liable for any damages whatsoever (including, without limitation, damages for loss of profits, business interruption, loss of information, or other pecuniary loss) arising out of:</p>
+      <ul>
+      <li>The use of or inability to use the Software</li>
+      <li>Any unauthorized access to or alteration of your transmissions or data</li>
+      <li>Any statements or conduct of any third party</li>
+      <li>Any other matter relating to the Software</li>
+      </ul>
+      <p>This limitation applies regardless of the legal theory (contract, tort, or otherwise) and even if the Developer has been advised of the possibility of such damages.</p>
+      <p>Some jurisdictions do not allow the exclusion or limitation of liability for consequential or incidental damages, so the above limitation may not apply to you.</p>
+      
+      <h2>9. Export Restrictions</h2>
+      <p>You agree to comply with all applicable export laws.</p>
+      
+      <h2>10. Governing Law</h2>
+      <p>This Agreement is governed by the laws of Serbia, excluding conflict-of-law principles.</p>
+      
+      <h2>11. Entire Agreement</h2>
+      <p>This document constitutes the entire agreement. No amendments are valid unless in writing and signed by the Developer.</p>
+      
+      <h2>12. Contact</h2>
+      <p>For questions, contact:</p>
+      <li>Discord: vuledjk (via direct message [DM])</li>
+      <p>By contacting via Discord, you acknowledge that Discord's privacy policies and terms of service apply to those communications.</p>
+      
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Lunar. All rights reserved.
+  </footer>
+</body>
+</html>
